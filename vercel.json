@@ -1,21 +1,29 @@
 {
-"$schema": "https://openapi.vercel.sh/vercel.json",
-"services": {
-"app": {
-"root": ".",
-"framework": "nextjs"
-},
-"mcp": {
-"root": "packages/mcp",
-"runtime": "node"
-}
-},
-"rewrites": [
-{
-"source": "/(.*)",
-"destination": {
-"service": "app"
-}
-}
-]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "nextjs"
+    },
+    "mcp": {
+      "root": "packages/mcp",
+      "runtime": "node",
+      "entrypoint": "bin/index.js",
+      "buildCommand": "npm run build"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": {
+        "service": "mcp"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    }
+  ]
 }
