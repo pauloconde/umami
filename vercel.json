@@ -8,7 +8,7 @@
     "mcp": {
       "root": "packages/mcp",
       "runtime": "node",
-      "entrypoint": "bin/index.js",
+      "entrypoint": "src/index.ts",
       "buildCommand": "npm run build"
     }
   },
